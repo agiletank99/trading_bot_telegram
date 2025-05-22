@@ -1,0 +1,9 @@
+services:
+  - type: worker
+    name: trading-bot-scheduler
+    runtime: python
+    buildCommand: "pip install -r requirements.txt"
+    startCommand: "python scheduler.py"
+    env: python
+    region: oregon  # o cambia con la tua regione
+    plan: free
