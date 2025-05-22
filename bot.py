@@ -2,7 +2,8 @@ from telegram import Update
 from telegram.ext import ApplicationBuilder, CommandHandler, ContextTypes
 import database
 
-TOKEN = "7511093606:AAEyFndoQZa5u5XSQUX5kh6hKIwxxA6K_6g"
+import os
+TOKEN = os.getenv("7511093606:AAEyFndoQZa5u5XSQUX5kh6hKIwxxA6K_6g")
 
 async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
     await update.message.reply_text("Benvenuto nel bot di trading crypto scalping!")
