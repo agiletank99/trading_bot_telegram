@@ -1,9 +1,10 @@
 services:
-  - type: worker
-    name: trading-bot-scheduler
+  - type: web
+    name: trading-bot
     runtime: python
-    buildCommand: "pip install -r requirements.txt"
-    startCommand: "python scheduler.py"
-    env: python
-    region: oregon  # o cambia con la tua regione
-    plan: free
+    buildCommand: ""
+    startCommand: "python web.py"
+    envVars:
+      - key: TELEGRAM_TOKEN
+        sync: false
+
