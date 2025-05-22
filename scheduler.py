@@ -19,5 +19,20 @@ if __name__ == '__main__':
     # Avvia scheduler in thread separato (daemon = chiude con il main)
     threading.Thread(target=run_schedule, daemon=True).start()
 
-    # Avvia il bot Telegram nel main thread, correttamente con asyncio.run()
-    asyncio.run(run_bot())
+    # Evita asyncio.run() se già esiste un event loop attivo (Render o Jupyter)
+    try:
+        loop = asyncio.get_running_loop()
+    except RuntimeError:
+        loop = None
+
+    if loop and loop.is_running():
+        # Se siamo in un event loop attivo (es. render.com), usa create_task
+        asyncio.create_task(run_bot())
+        # Mantieni il main thread attivo per non chiudere il programma
+        # Qui puoi fare un loop infinito o simile
+        print("Event loop già attivo, bot avviato come task.")
+        while True:
+            time.sleep(1)
+    else:
+        # Se non c'è un event loop, lo creiamo e facciamo partire il bot
+        asyncio.run(run_bot())
