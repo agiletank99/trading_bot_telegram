@@ -2,8 +2,9 @@ import alpaca_trade_api as tradeapi
 import database
 import requests
 
-API_KEY = "PKONC585CY600GY3GBIC"
-SECRET_KEY = "VmbXNEjP4hqyDOyLDoCQN47p29i43KOIZIhBshFn"
+import os
+API_KEY = os.getenv("PKONC585CY600GY3GBIC")
+SECRET_KEY = os.getenv("VmbXNEjP4hqyDOyLDoCQN47p29i43KOIZIhBshFn")
 URL = "https://paper-api.alpaca.markets"
 api = tradeapi.REST(API_KEY, SECRET_KEY, URL)
 
