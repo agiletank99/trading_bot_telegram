@@ -1,7 +1,6 @@
-# web.py
 import os
 from flask import Flask
-import scheduler  # importa solo per avviare lo scheduler e il bot
+import scheduler  # Importa per avviare scheduler + bot
 
 app = Flask(__name__)
 
@@ -10,6 +9,5 @@ def index():
     return "✅ Trading bot attivo su Render."
 
 if __name__ == '__main__':
-    port = int(os.environ.get('PORT', 5000))  # Render imposta PORT dinamicamente
+    port = int(os.environ.get('PORT', 5000))  # Render passa la porta dinamicamente
     app.run(host='0.0.0.0', port=port)
-
