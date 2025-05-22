@@ -13,7 +13,7 @@ async def status(update: Update, context: ContextTypes.DEFAULT_TYPE):
     await update.message.reply_text(f"💼 Stato conto demo:\n{data}")
 
 def run_bot():
-    app = ApplicationBuilder().token(TOKEN).build()
+    app = ApplicationBuilder().token(7511093606:AAEyFndoQZa5u5XSQUX5kh6hKIwxxA6K_6g).build()
     app.add_handler(CommandHandler("start", start))
     app.add_handler(CommandHandler("status", status))
     app.run_polling()
