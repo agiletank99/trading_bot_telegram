@@ -1,3 +1,9 @@
+import os
+
+required_vars = ["TOKEN", "APCA_API_KEY_ID", "APCA_API_SECRET_KEY", "APCA_API_BASE_URL"]
+for var in required_vars:
+    if not os.getenv(var):
+        raise Exception(f"❌ Variabile '{var}' non trovata nell'ambiente!")
 import schedule
 import time
 from trading import scalping_strategy, check_news
