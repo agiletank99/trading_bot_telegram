@@ -1,0 +1,7 @@
+python-telegram-bot==20
+alpaca-trade-api
+schedule
+flask
+requests
+beautifulsoup4
+yfinance
