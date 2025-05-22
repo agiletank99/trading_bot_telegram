@@ -5,7 +5,7 @@ from telegram.ext import ApplicationBuilder, CommandHandler, ContextTypes
 import database
 
 # Prendere il token dalla variabile ambiente corretta, es. TELEGRAM_TOKEN
-TOKEN = os.getenv("7511093606:AAEyFndoQZa5u5XSQUX5kh6hKIwxxA6K_6g")
+TOKEN = os.getenv("TELEGRAM_TOKEN")
 
 if not TOKEN:
     raise Exception("❌ Variabile d'ambiente 'TELEGRAM_TOKEN' non trovata!")
